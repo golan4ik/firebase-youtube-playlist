@@ -1,0 +1,15 @@
+.player-wrapper {
+  display: block;
+  width: 100%;
+}
+
+.player-wrapper .placeholder {
+  min-height: 320px;
+  position: relative;
+}
+
+.player-wrapper .placeholder > h1{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) translateX(50%)
+}
