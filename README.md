@@ -4,4 +4,4 @@
 
 #add valid .env values in .env file at root of the project
 
-#npm run
+#npm run start
