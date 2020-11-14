@@ -15,3 +15,6 @@ Then create an endpoint for rearranging indecies of elements in a collection.
 Say we have documents with indecies: 1,2,3,4,5,6, etc...
 After DnD is complete we would send to server item's id and index that it should get.
 Then server should manipulate data in Firestore collection updating all the items with new indecies OR we could have a collection with indecies and refs to documents and manipulate only this table, so  actual data is not updated too often.
+
+Another option is to have a collection for videos and collection of playlists.
+In each playlist we would have some details about this playlist and 1 of the fields would be an array of refs to documents in 'videos' collection.
