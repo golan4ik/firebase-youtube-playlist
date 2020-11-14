@@ -56,6 +56,12 @@ function Player(props) {
 
   return (
     <div className="player-wrapper">
+      {
+        /**
+         * Tried to play with just visibility while solving the TODO described above(not playing on mount).
+         * It was {videoId ? <YouTube ...lalala /> : <div className="placeholder"></div>} before
+         */
+      }
       <YouTube
         className={`${!videoId ? "hidden" : ""}`}
         videoId={videoId}
