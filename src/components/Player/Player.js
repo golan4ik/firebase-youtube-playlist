@@ -32,7 +32,7 @@ function Player(props) {
   };
 
   const onStateChange = (e) => {
-    //console.log(e.data);
+    //console.log("State: ", e.data);
   };
 
   const onError = (error) => {
@@ -56,21 +56,19 @@ function Player(props) {
 
   return (
     <div className="player-wrapper">
-      {videoId ? (
-        <YouTube
-          videoId={videoId}
-          opts={options}
-          onReady={onReady}
-          id={"youtube-player"}
-          onEnd={onEnd}
-          onError={onError}
-          onStateChange={onStateChange}
-        />
-      ) : (
-        <div className="placeholder">
-          <h1>Nothing to play</h1>
-        </div>
-      )}
+      <YouTube
+        className={`${!videoId ? "hidden" : ""}`}
+        videoId={videoId}
+        opts={options}
+        onReady={onReady}
+        id={"youtube-player"}
+        onEnd={onEnd}
+        onError={onError}
+        onStateChange={onStateChange}
+      />
+      <div className={`placeholder ${videoId ? "hidden" : ""} `}>
+        <h3>Nothing to play</h3>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { Grid } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import "./App.css";
@@ -20,6 +20,13 @@ import {
 } from "./store/selectors";
 import { parseSnapshot, sortItemsByDate } from "./utils";
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    boxSizing: 'border-box',
+    paddingTop: theme.spacing(5)
+  },
+}));
+
 function App(props) {
   const {
     items,
@@ -32,7 +39,7 @@ function App(props) {
     onVideoEndAction,
   } = props;
 
-  //console.log(selectedItem);
+  const classes = useStyles();
 
   useEffect(() => {
     const unsubscribe = db.collection("playlist").onSnapshot(onSnapshot);
@@ -73,22 +80,20 @@ function App(props) {
   };
 
   return (
-    <Grid container>
-      <Grid container item xs={12}>
-        <Grid container item md={5}>
-          <Playlist
-            items={Object.values(items)}
-            selectedItemId={selectedItem?.id}
-            onAdd={onAddLink}
-            disable={savingData}
-            savingData={savingData}
-            error={error}
-            onDeleteClick={onDeleteClick}
-          />
-        </Grid>
-        <Grid container item md={7} justify="center">
-          <Player videoId={selectedItem?.videoId} onVideoEnded={onVideoEnded} />
-        </Grid>
+    <Grid container item sx={12} className={classes.root}>
+      <Grid container item md={5}>
+        <Playlist
+          items={Object.values(items)}
+          selectedItemId={selectedItem?.id}
+          onAdd={onAddLink}
+          disable={savingData}
+          savingData={savingData}
+          error={error}
+          onDeleteClick={onDeleteClick}
+        />
+      </Grid>
+      <Grid container item md={7} justify="center">
+        <Player videoId={selectedItem?.videoId} onVideoEnded={onVideoEnded} />
       </Grid>
     </Grid>
   );

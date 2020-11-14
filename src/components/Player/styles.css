@@ -3,13 +3,18 @@
   width: 100%;
 }
 
+.player-wrapper .hidden {
+  display: none;
+}
+
 .player-wrapper .placeholder {
   min-height: 320px;
   position: relative;
 }
 
-.player-wrapper .placeholder > h1{
+.player-wrapper .placeholder > h3 {
   position: absolute;
   top: 50%;
-  transform: translateY(-50%) translateX(50%)
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
 }

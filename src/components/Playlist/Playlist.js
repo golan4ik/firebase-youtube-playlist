@@ -10,7 +10,7 @@ import { Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100vh",
+    height: `calc(100vh - ${theme.spacing(5)}px)`,
     flexWrap: "nowrap",
     backgroundColor: theme.palette.background.paper,
   },
