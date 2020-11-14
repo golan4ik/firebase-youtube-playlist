@@ -6,7 +6,7 @@ import "./styles.css";
 function Player(props) {
   const { videoId, onVideoEnded } = props;
   const player = useRef(null);
-
+  
   useEffect(() => {
     if (videoId && player.current) {
       /**
@@ -21,7 +21,7 @@ function Player(props) {
     return () => {
       player.current = null;
     };
-  });
+  }, []);
 
   const onReady = (e) => {
     player.current = e.target;
